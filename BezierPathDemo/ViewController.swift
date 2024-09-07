@@ -8,12 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Create an instance of PortraitOutlineView
+        let outlineView = PortraitOutlineView(frame: self.view.bounds)
+        
+        // Add it to the view controller's view
+        view.addSubview(outlineView)
     }
-
-
+    
+    
 }
 
