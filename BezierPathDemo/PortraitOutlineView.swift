@@ -49,7 +49,7 @@ class PortraitOutlineView: UIView {
         // Draw the left shoulder curve
         leftOutlinePath.addCurve(to: CGPoint(x: rect.midX - 80, y: rect.maxY * 0.4),
                                  controlPoint1: CGPoint(x: rect.minX, y: rect.maxY * 0.5),
-                                 controlPoint2: CGPoint(x: rect.midX - 95, y: rect.maxY * 0.42))
+                                 controlPoint2: CGPoint(x: rect.midX - 200, y: rect.maxY * 0.4))
         
         // Draw the left neck curve
         leftOutlinePath.addCurve(to: CGPoint(x: rect.midX - 80, y: rect.maxY * 0.3),
@@ -66,28 +66,28 @@ class PortraitOutlineView: UIView {
                                  controlPoint1: CGPoint(x: rect.midX - 100, y: rect.maxY * 0.2),
                                  controlPoint2: CGPoint(x: rect.midX - 90, y: rect.minY + 80))
         
-        // Create the mirrored right side path
+        // Create the bezier path for the right outline (mirror of the left)
         let rightOutlinePath = UIBezierPath()
         
-        // Start at the right edge, mirroring the left start point
+        // Start at the right edge, near the shoulder (mirroring the left start point)
         rightOutlinePath.move(to: CGPoint(x: rect.maxX, y: rect.maxY * 0.7))
         
-        // Draw the right shoulder curve (mirror of left)
+        // Draw the right shoulder curve (mirroring left side)
         rightOutlinePath.addCurve(to: CGPoint(x: rect.midX + 80, y: rect.maxY * 0.4),
                                   controlPoint1: CGPoint(x: rect.maxX, y: rect.maxY * 0.5),
-                                  controlPoint2: CGPoint(x: rect.midX + 95, y: rect.maxY * 0.42))
+                                  controlPoint2: CGPoint(x: rect.midX + 200, y: rect.maxY * 0.4))
         
-        // Draw the right neck curve (mirror of left)
+        // Draw the right neck curve (mirroring left side)
         rightOutlinePath.addCurve(to: CGPoint(x: rect.midX + 80, y: rect.maxY * 0.3),
                                   controlPoint1: CGPoint(x: rect.midX + 40, y: rect.maxY * 0.35),
                                   controlPoint2: CGPoint(x: rect.midX + 80, y: rect.maxY * 0.3))
         
-        // Draw the right side of the head (lower half, mirror of left)
+        // Draw the right side of the head (lower half, mirroring left side)
         rightOutlinePath.addCurve(to: CGPoint(x: rect.midX + 100, y: rect.maxY * 0.2),
                                   controlPoint1: CGPoint(x: rect.midX + 90, y: rect.maxY * 0.28),
                                   controlPoint2: CGPoint(x: rect.midX + 110, y: rect.maxY * 0.25))
         
-        // Draw the right side of the head (upper half, mirror of left)
+        // Draw the right side of the head (upper half, mirroring left side)
         rightOutlinePath.addCurve(to: CGPoint(x: rect.midX, y: rect.minY + 80),
                                   controlPoint1: CGPoint(x: rect.midX + 100, y: rect.maxY * 0.2),
                                   controlPoint2: CGPoint(x: rect.midX + 90, y: rect.minY + 80))
@@ -101,4 +101,5 @@ class PortraitOutlineView: UIView {
         leftOutlinePath.stroke()
         rightOutlinePath.stroke()
     }
+
 }
